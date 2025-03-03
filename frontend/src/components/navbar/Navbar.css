@@ -1,0 +1,109 @@
+/* Navbar.css */
+
+/* General Styles */
+.navbar {
+    background: linear-gradient(to right, #2563eb, #4f46e5); /* Gradient blue to indigo */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Container for proper spacing */
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Website title (brand) styling */
+  .navbar h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Navbar links container */
+  .navbar ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  
+  /* Navbar item styles */
+  .navbar ul li {
+    padding: 8px 16px;
+    position: relative;
+  }
+  
+  /* Link styles */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #f3f4f6; /* Light gray on hover */
+  }
+  
+  /* Mobile Menu Button */
+  .navbar .mobile-menu {
+    display: none;
+  }
+  
+  .navbar .mobile-menu.open {
+    display: block;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .navbar ul {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      display: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .navbar ul.open {
+      display: block;
+    }
+  
+    .navbar ul li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .navbar .mobile-menu {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+    }
+  }
+  .logout-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .username {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  

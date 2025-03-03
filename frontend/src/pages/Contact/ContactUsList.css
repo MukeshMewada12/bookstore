@@ -1,0 +1,76 @@
+.contact-list-container {
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.contact-table th,
+.contact-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.contact-table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-btn {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
