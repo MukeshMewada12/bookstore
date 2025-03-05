@@ -19,7 +19,7 @@ const AddBook = () => {
         state: "",
         bookYear: "",
         bookCondition: "",
-        bookPdf: null,
+        bookPdf: null, // Changed from bookPdf to bookPdf
     });
 
     const [cities, setCities] = useState([]);
@@ -77,13 +77,13 @@ const AddBook = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    // Handle file upload
+    // Handle file upload for images
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-        if (file && file.type === "application/pdf") {
+        if (file && /\.(jpe?g|png|gif)$/i.test(file.name)) { // Validate image file types
             setFormData({ ...formData, bookPdf: file });
         } else {
-            alert("Please upload a valid PDF file (max 5MB).");
+            alert("Please upload a valid image file (JPEG, PNG, or GIF).");
             e.target.value = "";
         }
     };
@@ -91,21 +91,21 @@ const AddBook = () => {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         // Validate pincode
         if (!/^\d{6}$/.test(formData.pincode)) {
             alert("Please enter a valid 6-digit pincode.");
             return;
         }
-    
+
         // Create a FormData object
         const formDataToSend = new FormData();
-    
+
         // Append all form fields to the FormData object
         for (const key in formData) {
             formDataToSend.append(key, formData[key]);
         }
-    
+
         // Dispatch the submitAddBook action with the FormData object
         dispatch(submitAddBook(formDataToSend))
             .unwrap()
@@ -120,7 +120,7 @@ const AddBook = () => {
                     state: "",
                     bookYear: "",
                     bookCondition: "",
-                    bookPdf: null,
+                    bookPdf: null, // Reset the image field
                 });
             })
             .catch((error) => {
@@ -275,19 +275,18 @@ const AddBook = () => {
                         </div>
                     </div>
 
-                    {/* File Upload */}
+                    {/* File Upload for Images */}
                     <div className="row mb-3">
                         <div className="col-md-6">
-                            <label className="form-label">Upload Book PDF</label>
+                            <label className="form-label">Upload Book Image</label>
                             <input
-    type="file"
-    name="bookFile"
-    className="form-control"
-    accept=".jpg, .jpeg, .png, .gif, .pdf"
-    onChange={handleFileChange}
-    required
-/>
-
+                                type="file"
+                                name="bookPdf"
+                                className="form-control"
+                                accept=".jpg, .jpeg, .png, .gif" // Allow only image files
+                                onChange={handleFileChange}
+                                required
+                            />
                         </div>
                     </div>
 

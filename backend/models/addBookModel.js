@@ -45,6 +45,16 @@ class AddBook {
       throw new Error(`Error deleting book: ${error.message}`);
     }
   }
+  static async getbookbyid(id) {
+    try {
+      const [result] = await db.query('SELECT * FROM add_book WHERE id = ?', [id]);
+
+      // Ensure you return the book data
+      return result.length ? result[0] : null;
+    } catch (error) {
+      throw new Error(`Error fetching book: ${error.message}`);
+    }
+  }
 }
 
 module.exports = AddBook;

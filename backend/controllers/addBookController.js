@@ -36,10 +36,8 @@ class AddBookController {
     try {
       const data = req.body;
       const isUpdated = await AddBook.updateAddBook(data);
-      if (!isUpdated) {
-        return res.status(404).json({ message: 'Book not found' });
-      }
-      res.status(200).json({ message: 'Book updated successfully' });
+      res.status(200).json(books);
+
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -57,6 +55,22 @@ class AddBookController {
       res.status(500).json({ error: error.message });
     }
   }
+
+  static async getbookbyid(req, res) {
+    try {
+      const { id } = req.params;
+      const book = await AddBook.getbookbyid(id); // Fetch book by ID
+
+      if (!book) {
+        return res.status(404).json({ message: 'Book not found' });
+      }
+
+      res.status(200).json({ book });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+  
 }
 
 module.exports = AddBookController;
